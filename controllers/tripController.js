@@ -36,7 +36,7 @@ router.post('/create', isUser(), async (req, res) => {
     }
 });
 
-router.get('/', isUser(), (req, res) => {
+router.get('/', (req, res) => {
     res.render('trips');    
 })
 router.get('/details', isUser(), (req, res) => {

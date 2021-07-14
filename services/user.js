@@ -1,7 +1,6 @@
 const User = require("../models/User");
 
 async function createUser(email, gender, hashedPassword) {
-    // TODO ADAPT USER FUNCTIONS TO PROJECT
     const user = new User({
         email,
         gender,

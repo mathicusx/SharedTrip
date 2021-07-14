@@ -57,7 +57,6 @@ async function login(email, password) {
     return generateToken(user);
 }
 
-function logout() {}
 
 function generateToken(userData) {
     return jwt.sign(
@@ -76,6 +75,7 @@ function parseToken(req, res) {
         try {
             const userData = jwt.verify(token, TOKEN_SECRET_KEY);
             req.user = userData;
+            res.locals.user = userData;
         } catch (err) {
             res.clearCookie(COOKIE_NAME);
             res.redirect("/auth/login");
