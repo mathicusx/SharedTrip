@@ -9,6 +9,7 @@ router.get("/register", isGuest(), (req, res) => {
 router.post(
     "/register",
     isGuest(),
+    body("email", 'Email is Invalid').isEmail(),
     body("password")
         .isLength({ min: 4 })
         .withMessage("password must be more than 4 digits!"),
