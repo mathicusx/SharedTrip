@@ -15,7 +15,7 @@ async function createUser(email, gender, hashedPassword) {
 
 
 async function getUserbyEmail(email) {
-    const pattern = new RegExp(/^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$/);
+    const pattern = new RegExp(`^${email}$`, 'i');
     const user = await User.findOne({
         email: { $regex: pattern },
     });

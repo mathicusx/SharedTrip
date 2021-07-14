@@ -27,13 +27,12 @@ module.exports = () =>
     };
 
 async function register(email,gender, password) {
-    //TODO add Params to Project
-    //TODO Validations to project
+ 
 
     const existing = await userService.getUserbyEmail(email);
 
     if (existing) {
-        throw new Error("Wrong Email or Already in Use  ");
+        throw new Error("Email Already in Use");
     }
 
     const hashedPassword = await bcrypt.hash(password, 12);
